@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Java: Build active file",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "-encoding",
+                "UTF-8",
+                "-d",
+                "${workspaceFolder}/out",
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$javac"]
+        },
+        {
+            "label": "Java: Run active file",
+            "type": "shell",
+            "dependsOn": "Java: Build active file",
+            "command": "java",
+            "args": [
+                "-cp",
+                "${workspaceFolder}/out",
+                "${fileBasenameNoExtension}"
+            ],
+            "presentation": {
+                "focus": true,
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
